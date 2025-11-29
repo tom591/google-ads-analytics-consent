@@ -70,7 +70,9 @@ google-ads-analytics-consent/
 
 In `app.py`:
 
+```bash
 app.config['SECRET_KEY'] = 'your-secret-key-here'
+   ```
 
 ### 2️⃣ Enable HTTPS mode
 
@@ -82,15 +84,32 @@ SESSION_COOKIE_SECURE=True
 
 Inside `/set-consent`:
 
+```bash
 secure=True,           # Enable for HTTPS  
 httponly=False,        # Must remain False (JS reads this cookie)
+   ```
 
 ### 4️⃣ Insert your Google IDs
 
 Replace:
+   ```bash
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
 
-G-XXXXXXXX  
-AW-XXXXXXXX  
+window.enableTracking = function() {
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXXX');
+gtag('config', 'AW-XXXXXXXX');
+};
+
+if (document.cookie.includes('user_consent') && document.cookie.includes('"analytics":true')) {
+window.enableTracking();
+}
+</script>
+   ```
 
 in your HTML template cookies.html
 
@@ -119,7 +138,9 @@ pip install -r requirements.txt
 
 ## ▶️ Run the project
 
-flask run
+   ```bash
+   flask run
+   ```
 
 Open:
 
