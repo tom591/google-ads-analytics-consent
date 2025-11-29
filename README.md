@@ -78,7 +78,9 @@ app.config['SECRET_KEY'] = 'your-secret-key-here'
 
 If deployed on HTTPS:
 
+```bash
 SESSION_COOKIE_SECURE=True
+   ```
 
 ### 3️⃣ Cookie configuration
 
@@ -91,7 +93,7 @@ httponly=False,        # Must remain False (JS reads this cookie)
 
 ### 4️⃣ Insert your Google IDs
 
-Replace:
+Replace XXXXXXXX with your own Google Analytics and Google Ads IDs.:
    ```bash
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXX"></script>
