@@ -56,7 +56,7 @@ google-ads-analytics-consent/
 │   └── js/
 │        └── cookies.js
 ├── templates/
-│   └── index.html (only for demenstration)
+│   └── index.html (for demonstration only)
 │   └── cookies.html
 ├── app.py
 ├── screen.gif
@@ -67,19 +67,11 @@ google-ads-analytics-consent/
 
 ## ⚙️ Customization
 
-### 1️⃣ Set your secret key and change for HTTPS
+### 1️⃣ Set your secret key
 
 In `app.py`:
 
 ```bash
-
-app.config.update(
-    SESSION_COOKIE_SAMESITE="Lax",
-    SESSION_COOKIE_SECURE=False,      # True, if HTTPS
-    SESSION_REFRESH_EACH_REQUEST=False,      # Keeps session lifetime stable; prevents auto-refresh on each request
-    PERMANENT_SESSION_LIFETIME=timedelta(days=30)
-)
-
 app.config['SECRET_KEY'] = 'your-secret-key-here'
    ```
 
