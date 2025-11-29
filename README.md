@@ -193,8 +193,8 @@ http://127.0.0.1:5000
 
 ## 📝 License
 
-Released under the **MIT License**.  
-Free to use, modify, and distribute. No warranty provided.
+This project is released under the [MIT License](LICENSE).  
+Use freely, modify as needed. No warranty provided.
 
 ---
 
