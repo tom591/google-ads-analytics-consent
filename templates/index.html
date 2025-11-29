@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="static/css/cookies.css">
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<title>google-ads-analytics-consent</title>
+</head>
+<body style="margin:0; padding:0; display:flex; align-items:center; justify-content:center; height:100vh; font-family:Arial, sans-serif;">
+<div style="text-align:center; max-width:600px; padding:20px;">
+<h1 style="margin-bottom:20px;">google-ads-analytics-consent</h1>
+<p style="font-size:18px; line-height:1.5;">
+A simple, ready-to-use consent banner system for integrating
+Google Analytics and Google Ads on Python/Flask websites.
+</p>
+</div>
+{% include "cookies.html" %}
+</body>
+</html>

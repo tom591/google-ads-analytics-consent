@@ -1,0 +1,68 @@
+{% if not has_consent %}
+<div id="cookie-bar">
+<div class="cb-left">
+<span>🍪 We use cookies for analytics and advertising.</span>
+</div>
+<div class="cb-actions">
+<button id="consent-deny-all" class="cc-btn-ghost" type="button">Reject all</button>
+<button id="consent-open-settings" class="cc-btn-info" type="button">Settings</button>
+<button id="consent-allow-all" class="cc-btn-primary" type="button">Allow all</button>
+</div>
+</div>
+{% endif %}
+<div id="consent-backdrop" class="hidden"></div>
+<div id="consent-modal" class="hidden" role="dialog" aria-modal="true" aria-labelledby="consent-title">
+<h3 id="consent-title">Privacy</h3>
+<div class="consent-opt">
+<input id="consent-analytics" type="checkbox">
+<label for="consent-analytics">
+<span class="opt-title">Analytics</span>
+<span class="opt-desc">Google Analytics 4 – anonymous traffic statistics (without advertising identifiers).</span>
+</label>
+</div>
+<div class="consent-opt">
+<input id="consent-ads" type="checkbox">
+<label for="consent-ads">
+<span class="opt-title">Advertising (measurement/conversions/remarketing)</span>
+<span class="opt-desc">Google Ads – conversion tracking and optional remarketing.</span>
+</label>
+</div>
+<div class="consent-opt">
+<input id="consent-personalize" type="checkbox">
+<label for="consent-personalize">
+<span class="opt-title">Ad personalisation</span>
+<span class="opt-desc">Adjusting ads based on your behaviour on this website.</span>
+</label>
+</div>
+<div class="modal-actions">
+<button id="consent-cancel" class="cc-btn-cancel" type="button">Cancel</button>
+<button id="consent-save" class="cc-btn-save" type="button">Save</button>
+</div>
+</div>
+<button id="cookie-manager" class="cookie-fab hidden" type="button"
+aria-label="Privacy settings" aria-haspopup="dialog"
+title="Privacy settings">🍪</button>
+<script src="{{ url_for('static', filename='js/cookies.js') }}"></script>
+
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Replace XXXXXXXX with your own Google Analytics and Google Ads IDs.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+
+window.enableTracking = function() {
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXXX');
+gtag('config', 'AW-XXXXXXXX');
+};
+
+if (document.cookie.includes('user_consent') && document.cookie.includes('"analytics":true')) {
+window.enableTracking();
+}
+</script>
