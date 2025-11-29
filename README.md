@@ -56,7 +56,8 @@ google-ads-analytics-consent/
 │   └── js/
 │        └── cookies.js
 ├── templates/
-│   └── index.html
+│   └── index.html (only for demenstration)
+│   └── cookies.html
 ├── app.py
 ├── screen.gif
 └── requirements.txt
@@ -66,11 +67,19 @@ google-ads-analytics-consent/
 
 ## ⚙️ Customization
 
-### 1️⃣ Set your secret key
+### 1️⃣ Set your secret key and change for HTTPS
 
 In `app.py`:
 
 ```bash
+
+app.config.update(
+    SESSION_COOKIE_SAMESITE="Lax",
+    SESSION_COOKIE_SECURE=False,      # True, if HTTPS
+    SESSION_REFRESH_EACH_REQUEST=False,      # Keeps session lifetime stable; prevents auto-refresh on each request
+    PERMANENT_SESSION_LIFETIME=timedelta(days=30)
+)
+
 app.config['SECRET_KEY'] = 'your-secret-key-here'
    ```
 
@@ -159,7 +168,7 @@ Free to use, modify, and distribute. No warranty provided.
 
 ## 🚀 Final Words
 
-**Learn, build, improve — and enjoy the process.**  
+**Learn, code, enjoy — good luck!**  
 *Tom Salaj*
 
 [![Buy Me a Coffee](https://img.buymeacoffee.com/button-api/?text=Buy%20Me%20a%20Coffee&emoji=☕&slug=tomsalaj&button_colour=FFDD00&font_colour=000000&font_family=Arial&outline_colour=000000&coffee_colour=ffffff)](https://www.buymeacoffee.com/tomsalaj)
