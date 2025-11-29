@@ -2,9 +2,9 @@
 ### Cookie bar system for Python/Flask — ready for Google Analytics & Google Ads  
 by Tom Salaj
 
-[![Python](https://img.shields.io/badge/python-3.11-blue)](https://www.python.org/)  
-![Flask](https://img.shields.io/badge/Framework-Flask-lightgrey?logo=flask)
-[![License](https://img.shields.io/badge/license-MIT-green)]((https://github.com/tom591/google-ads-analytics-consent/tree/main?tab=MIT-1-ov-file))
+[![Python](https://img.shields.io/badge/python-3.11-blue)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Framework-Flask-lightgrey?logo=flask)
+[![License](https://img.shields.io/badge/license-MIT-green)((https://github.com/tom591/google-ads-analytics-consent/tree/main?tab=MIT-1-ov-file)
 
 ---
 
