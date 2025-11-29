@@ -118,6 +118,40 @@ in your HTML template cookies.html
 
 ---
 
+## 🧩 Integration into Your Existing Flask Project
+
+To use this system in your own Flask application, simply include the cookie banner template at the end of your HTML layout.
+
+Place this line **right before the closing `<body>` tag**:
+
+```bash
+{% include "cookies.html" %}
+   ```
+
+Example:
+
+```bash
+{% include "cookies.html" %}
+</body>
+</html>
+   ```
+   
+---
+
+## 🛡️ CSRF Protection
+
+This project includes a simple but secure CSRF protection mechanism for the consent endpoint.  
+The `/set-consent` route validates tokens provided through:
+
+- request headers (`X-CSRFToken`)  
+- JSON body (`_csrf_token`)  
+- form fields (`_csrf_token`)  
+
+If you already use your own CSRF solution (e.g. Flask-WTF, custom middleware, or a global handler),  
+you can easily integrate or replace the built-in validator to match your application's structure.
+
+---
+
 ## 🧩 Custom Styles & Extensions
 
 This consent system is intentionally simple and fully open.  
@@ -135,7 +169,12 @@ The entire project is designed to be **fully customizable** — adjust it to you
 
 ## 💾 Installation
 
+ ```bash
 pip install -r requirements.txt
+   ```
+
+Note: Installing from `requirements.txt` is optional.  
+If you already have Flask installed (any 3.x version), the system works without additional dependencies.
 
 ---
 
