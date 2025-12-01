@@ -137,7 +137,7 @@ Example:
 </html>
    ```
 
-### 2️⃣ Insert the Meta CSRF token and the CSS styles into your HTML <head> section.
+### 2️⃣ Insert the Meta CSRF token and the CSS styles into your HTML ``` <head> ``` section.
 
 ```bash
 <meta name="csrf-token" content="{{ csrf_token() }}">
