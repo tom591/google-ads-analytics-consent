@@ -121,7 +121,7 @@ in your HTML template cookies.html
 
 ## 🧩 Integration into Your Existing Flask Project
 
-To use this system in your own Flask application, simply include the cookie banner template at the end of your HTML layout.
+### 1️⃣ To use this system in your own Flask application, simply include the cookie banner template at the end of your HTML layout.
 
 Place this line **right before the closing `<body>` tag**:
 
@@ -136,7 +136,24 @@ Example:
 </body>
 </html>
    ```
-   
+
+### 2️⃣ Insert Meta CSRF-Token, and CSS styles in your index between the header
+
+```bash
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<link rel="stylesheet" type="text/css" href="static/css/cookies.css">
+   ```
+
+Example:
+
+```bash
+<head>
+<link rel="stylesheet" type="text/css" href="static/css/cookies.css">
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<title>google-ads-analytics-consent</title>
+</head>
+   ```
+
 ---
 
 ## 🛡️ CSRF Protection
