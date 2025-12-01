@@ -71,7 +71,7 @@ google-ads-analytics-consent/
 
 In `app.py`:
 
-```bash
+```python
 app.config['SECRET_KEY'] = 'your-secret-key-here'
    ```
 
@@ -79,7 +79,7 @@ app.config['SECRET_KEY'] = 'your-secret-key-here'
 
 If deployed on HTTPS:
 
-```bash
+```python
 SESSION_COOKIE_SECURE=True
    ```
 
@@ -87,15 +87,15 @@ SESSION_COOKIE_SECURE=True
 
 Inside `/set-consent`:
 
-```bash
+```python
 secure=True,           # Enable for HTTPS  
 httponly=False,        # Must remain False (JS reads this cookie)
    ```
 
 ### 4️⃣ Insert your Google IDs
 
-Replace XXXXXXXX with your own Google Analytics and Google Ads IDs.:
-   ```bash
+Replace XXXXXXXX with your own Google Analytics and Google Ads IDs in your HTML template cookies.html:
+   ```html
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXX"></script>
 <script>
@@ -114,7 +114,16 @@ window.enableTracking();
 </script>
    ```
 
-in your HTML template cookies.html
+
+### 5️⃣ Your index route (and other page routes) must allow GET requests
+
+The cookie consent script loads on page visits, so each route that renders a template must support the GET method.
+
+ ```python
+@app.route('/', methods=['GET'])
+def index():
+    return render_template('index.html')
+```
 
 ---
 
@@ -124,13 +133,13 @@ in your HTML template cookies.html
 
 Place this line **right before the closing `<body>` tag**:
 
-```bash
+```html
 {% include "cookies.html" %}
    ```
 
 Example:
 
-```bash
+```html
 {% include "cookies.html" %}
 </body>
 </html>
@@ -138,14 +147,14 @@ Example:
 
 ### 2️⃣ Insert the Meta CSRF token and the CSS styles into your HTML ``` <head> ``` section.
 
-```bash
+```html
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="stylesheet" type="text/css" href="static/css/cookies.css">
    ```
 
 Example:
 
-```bash
+```html
 <head>
 <link rel="stylesheet" type="text/css" href="static/css/cookies.css">
 <meta name="csrf-token" content="{{ csrf_token() }}">
